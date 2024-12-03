@@ -10,8 +10,9 @@ private:
 
 public:
     Adc();
-    float setFatorPesagem();
-    float lerPeso();
+    Adc(float);
+    void setFatorPesagem(float);
+    float lerPeso(int);
     void getZero();
 };
 
