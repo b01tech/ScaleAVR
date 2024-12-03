@@ -34,7 +34,7 @@ void SerialPort::enviarData(float peso, int ptoDecimal)
         ProtocoloDG(peso, ptoDecimal);
         break;
     default:
-        this->Protocol == 0;
+        setProtocol(0);
         break;
     }
 }
