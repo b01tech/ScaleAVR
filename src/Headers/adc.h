@@ -1,7 +1,7 @@
 #ifndef ADC_H
 #define ADC_H
 
-class Acd
+class Adc
 {
 private:
     float FatorPesagem;
@@ -9,10 +9,10 @@ private:
     float Peso;
 
 public:
-    Acd();
+    Adc();
     float setFatorPesagem();
     float lerPeso();
-    float getZero();
+    void getZero();
 };
 
 #endif

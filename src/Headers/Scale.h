@@ -1,5 +1,12 @@
 #ifndef SCALE_H
 #define SCALE_H
+
+// imports
+#include "Adc.h"
+#include "Display.h"
+#include "Keypad.h"
+#include "SerialPort.h"
+
 class Scale
 {
 private:
@@ -12,8 +19,13 @@ private:
     bool CalMode;
     bool FlagTara;
 
+    Adc &adc;
+    Display &display;
+    Keypad &keypad;
+    SerialPort &serial;
+
 public:
-    Scale();
+    Scale(Adc &adc, Display &display, Keypad &keypad, SerialPort &serial);
     // Calibração
     void setDivisao(int);
     void setPtoDecimal(int);

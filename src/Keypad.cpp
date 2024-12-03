@@ -19,24 +19,33 @@ char Keypad::lerTecla()
 {
     if (digitalRead(PIN_T) == LOW)
     {
-        return 'T';
+        delay(50);
+        if (digitalRead(PIN_T) == LOW)
+            return 'T';
     }
     if (digitalRead(PIN_L) == LOW)
     {
-        return 'L';
+        delay(50);
+        if (digitalRead(PIN_L) == LOW)
+            return 'L';
     }
     if (digitalRead(PIN_Z) == LOW)
     {
-        return 'Z';
+        delay(50);
+        if (digitalRead(PIN_Z) == LOW)
+            return 'Z';
     }
     if (digitalRead(PIN_I) == LOW)
     {
-        return 'I';
+        delay(50);
+        if (digitalRead(PIN_I) == LOW)
+            return 'I';
     }
 
-    delay(100);
+    return '\0';
 }
 
 float Keypad::setParam()
 {
+    return 0.0f;
 }

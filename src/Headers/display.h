@@ -1,5 +1,5 @@
 #ifndef DISPLAY_H
-#define DISPLAY
+#define DISPLAY_H
 class Display
 {
 private:
