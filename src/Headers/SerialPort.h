@@ -1,16 +1,18 @@
-#ifndef SERIAL_H
-#define SERIAL_H
+#ifndef SERIALPORT_H
+#define SERIALPORT_H
 
-class Serial
+class SerialPort
 {
 private:
     int SerialMode;
     int Protocol;
+    int BaudRate;
 
 public:
-    Serial();
+    SerialPort();
     void setSerialMode(int);
     void setProtocol(int);
+    void setBaudRate(int);
     void enviarData();
 };
 
