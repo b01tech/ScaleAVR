@@ -13,7 +13,7 @@ public:
     void setSerialMode(int);
     void setProtocol(int);
     void setBaudRate(int);
-    void enviarData();
+    void enviarData(float, int);
 };
 
 #endif
