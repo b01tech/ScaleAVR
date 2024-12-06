@@ -23,20 +23,41 @@ Adc::Adc(float fatorPesagem = 213900.0f)
     loadCell.tare();
 };
 
-void Adc::setFatorPesagem(float pesoConhecido)
+float Adc::calcFatorPesagem(float pesoConhecido)
 {
-    float span = loadCell.get_units(5);
-    this->ConstSpan = span;
     loadCell.calibrate_scale(pesoConhecido);
-    this->FatorPesagem = loadCell.get_scale();
+    return loadCell.get_scale();
+}
+
+void Adc::setFatorPesagem(float fatorPesagem)
+{
+    this->FatorPesagem = fatorPesagem;
 };
 
-float Adc::lerPeso(int filtro = 6)
+void Adc::setFiltro(int filtro)
 {
-    return loadCell.get_units(filtro);
+    this->Filtro = filtro;
+}
+
+float Adc::lerPeso()
+{
+    return loadCell.get_units(this->Filtro);
 };
 
 void Adc::getZero()
 {
     loadCell.tare(5);
 };
+
+float Adc::getOffset()
+{
+    loadCell.tare(5);
+    return loadCell.get_offset();
+}
+
+void Adc::saveConst(float zero, float span, float fator)
+{
+    this->ConstZero = zero;
+    this->ConstSpan = span;
+    this->FatorPesagem = fator;
+}

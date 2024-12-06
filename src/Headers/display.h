@@ -3,14 +3,11 @@
 class Display
 {
 private:
-    int Menu;
-
 public:
     Display();
-    void exibiMenu(int);
+    void clear();
     void exibirPeso(float);
     void exibirMensagem(char[]);
-    void navegarMenu();
 };
 
 #endif

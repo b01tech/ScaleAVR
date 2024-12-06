@@ -29,16 +29,42 @@ void loop()
 
 void Task_Pesagem(void *param)
 {
+  float peso;
   while (1)
   {
+    peso = bal.pesar();
+    bal.display.exibirPeso(peso);
+
     vTaskDelay(500 / portTICK_PERIOD_MS);
   }
 }
 
 void Task_Teclado(void *param)
 {
+  char tecla;
   while (1)
   {
+    tecla = bal.keypad.lerTecla();
+    switch (tecla)
+    {
+    case 'T':
+      bal.tarar();
+      break;
+    case 'Z':
+      bal.zerar();
+      break;
+    case 'L':
+      bal.display.navegarMenu();
+      break;
+    case 'I':
+      if (bal.serial.SerialMode == 0)
+      {
+        bal.serial.enviarData(bal.adc.lerPeso(), bal.PtoDecimal);
+      }
+      break;
+    default:
+      break;
+    }
     vTaskDelay(500 / portTICK_PERIOD_MS);
   }
 }
@@ -47,6 +73,10 @@ void Task_Serial(void *param)
 {
   while (1)
   {
+    if (bal.serial.SerialMode == 1)
+    {
+      bal.serial.enviarData(bal.adc.lerPeso(), bal.PtoDecimal);
+    }
     vTaskDelay(500 / portTICK_PERIOD_MS);
   }
 }

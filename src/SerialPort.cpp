@@ -37,6 +37,7 @@ void SerialPort::enviarData(float peso, int ptoDecimal)
         setProtocol(0);
         break;
     }
+    delay(250);
 }
 
 void ProtocoloDG(float peso, int ptoDecimal)
@@ -60,7 +61,7 @@ void ProtocoloDG(float peso, int ptoDecimal)
     Serial.print(pesoFormatado);
     Serial.print(String(char(0x0D)));
 
-    delay(5);
+    delay(20);
 }
 
 char calcStatusDG(float peso)

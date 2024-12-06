@@ -4,16 +4,21 @@
 class Adc
 {
 private:
-    float FatorPesagem;
-    float ConstZero, ConstSpan;
     float Peso;
+    int Filtro;
 
 public:
     Adc();
     Adc(float);
+    float FatorPesagem;
+    float ConstZero, ConstSpan;
+    float calcFatorPesagem(float);
     void setFatorPesagem(float);
-    float lerPeso(int);
+    void setFiltro(int);
+    float getOffset();
+    float lerPeso();
     void getZero();
+    void saveConst(float z, float s, float f);
 };
 
 #endif

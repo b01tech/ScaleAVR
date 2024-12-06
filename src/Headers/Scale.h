@@ -10,39 +10,43 @@
 class Scale
 {
 private:
-    int Divisao, PtoDecimal;
-    float CapMaxima, Resolucao;
-    float PesoConhecido;
     float PesoBruto;
     float Tara;
     float PesoLiquido;
     bool CalMode;
     bool FlagTara;
 
+public:
+    Scale(Adc &adc, Display &display, Keypad &keypad, SerialPort &serial);
+    // Periféricos
     Adc &adc;
     Display &display;
     Keypad &keypad;
     SerialPort &serial;
-
-public:
-    Scale(Adc &adc, Display &display, Keypad &keypad, SerialPort &serial);
-    // Calibração
-    void setDivisao(int);
-    void setPtoDecimal(int);
-    void calcResolucao(int);
-    void setCapMaxima(float);
-    void setPesoConhecido(float);
+    // Parametros
+    int Divisao, PtoDecimal;
+    float CapMaxima, Resolucao;
+    // Métodos Calibração
+    void setDivisao();
+    void setPtoDecimal();
+    void calcResolucao(int, int);
+    void setCapMaxima();
+    void setPesoConhecido();
+    void setZero();
+    void setSpan();
     void entrarCalibracao();
     void sairCalibracao();
-    void salvarCalibracao(bool);
+    void salvarCalibracao();
     void initEEPROM();
-    // Operação
+    // Métodos Operação
+    float pesar();
     void tarar();
     void zerar();
     void contarPecas();
     void checkLimites(float);
     bool lerZeroInicial();
     void buzzer();
+    float setPeso();
 };
 
 #endif

@@ -7,7 +7,9 @@ private:
 public:
     Keypad();
     char lerTecla();
-    float setParam();
+    float setParamFloat();
+    int setParamInt();
+    bool setParamBoolean();
 };
 
 #endif

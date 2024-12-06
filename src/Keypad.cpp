@@ -45,7 +45,17 @@ char Keypad::lerTecla()
     return '\0';
 }
 
-float Keypad::setParam()
+float Keypad::setParamFloat()
 {
     return 0.0f;
+}
+
+int Keypad::setParamInt()
+{
+    return 0;
+}
+
+bool Keypad::setParamBoolean()
+{
+    return false;
 }
